@@ -1,0 +1,165 @@
+
+body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+#home_landing_box {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    
+}
+
+#home_landing_content_box {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+#home_navbar_box {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+}
+
+#navbar_logo {
+    margin: 0;
+}
+
+#navbar_ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar_ul li {
+    margin-left: 2rem;
+}
+
+#navbar_ul a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-toggle-label span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-toggle-label span::before {
+    content: "";
+    top: -0.6rem;
+}
+
+.nav-toggle-label span::after {
+    content: "";
+    top: 0.6rem;
+}
+
+/* Mobile first */
+@media (max-width: 768px) {
+    #navbar {
+        padding: 1rem;
+    }
+
+    #navbar_ul {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        background-color: #333;
+        transition: max-height 0.25s ease-in-out;
+    }
+
+    #navbar_ul li {
+        margin: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #navbar_ul li:first-child {
+        border-top: none;
+    }
+
+    .nav-toggle-label {
+        display: block;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span {
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span::before {
+        transform: rotate(90deg);
+        top: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span::after {
+        transform: rotate(90deg);
+        top: 0;
+    }
+
+    .nav-toggle:checked ~ #navbar_ul {
+        max-height: 20rem;
+    }
+}
+
+#home_landing_content_box {
+    text-align: center;
+}
+
+#home_landing_content_heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#home_landing_content_paragraph {
+    font-size: 1.2rem;
+}
